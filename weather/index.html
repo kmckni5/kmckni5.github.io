@@ -16,8 +16,6 @@
 <link href="weather.css" rel="stylesheet">
 var weatherAlertsUrl = 'https://api.weather.gov/alerts/active?region_type=land';
 $.getJSON(weatherAlertsUrl, function(data) {
-L.geoJSON(data).addTo(map);
-});
 L.geoJSON(data, {
 style: function(feature){
   var alertColor = 'orange';
@@ -28,4 +26,3 @@ onEachFeature: function(feature, layer) {
   layer.bindPopup(feature.properties.headline);
 }
 }).addTo(map);
-
