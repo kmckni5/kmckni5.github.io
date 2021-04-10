@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Kyndal's Weather Map</title>
+    <title> Kyndal's Weather Map </title>
   </head>
   <body>
     <div id="map"></div>
@@ -19,6 +19,10 @@ L.geoJSON(data, {
 style: function(feature){
   var alertColor = 'orange';
   if (feature.properties.severity === 'Severe') alertColor = 'red';
+  return { color: alertColor };
+style: function(feature){
+  var alertColor = 'orange';
+  if (feature.properties.severity === 'mild') alertColor = 'purple';
   return { color: alertColor };
 },
 onEachFeature: function(feature, layer) {
